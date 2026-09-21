@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# TensorFlow and local tooling
+.keras/
+.ipynb_checkpoints/
+
+# Generated experiment outputs
+experiment-2/medical_gan/generated_images/*
+!experiment-2/medical_gan/generated_images/.gitkeep
