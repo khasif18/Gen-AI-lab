@@ -1,0 +1,42 @@
+{
+  "college_name": "ABC Institute of Technology",
+  "disclaimer": "This is demo/synthetic information for an AI experiment.",
+  "courses": [
+    "B.Tech Computer Science and Engineering (CSE)",
+    "B.Tech Artificial Intelligence and Machine Learning (AI & ML)",
+    "B.Tech Electronics and Communication Engineering (ECE)",
+    "B.Tech Mechanical Engineering"
+  ],
+  "eligibility": {
+    "general": "Passed 10+2 or equivalent examination.",
+    "subjects_required": "Physics, Mathematics, and one of Chemistry/Biotechnology/Biology/Technical Vocational subject.",
+    "minimum_percentage": "Minimum 60% aggregate marks in 10+2 for general category (55% for reserved categories)."
+  },
+  "fees": {
+    "B.Tech Computer Science and Engineering (CSE)": "$5,000 per year",
+    "B.Tech Artificial Intelligence and Machine Learning (AI & ML)": "$5,500 per year",
+    "B.Tech Electronics and Communication Engineering (ECE)": "$4,500 per year",
+    "B.Tech Mechanical Engineering": "$4,000 per year",
+    "application_fee": "$50 (non-refundable)"
+  },
+  "admission_procedure": [
+    "1. Check eligibility criteria on the website.",
+    "2. Fill out the online application form.",
+    "3. Upload the required documents.",
+    "4. Pay the application fee.",
+    "5. Attend the counselling or selection process based on entrance exam scores.",
+    "6. Upon selection, complete admission by paying the first semester fee."
+  ],
+  "required_documents": [
+    "10th standard certificate (for date of birth)",
+    "12th standard mark sheet and certificate",
+    "Transfer certificate from the last attended institution",
+    "Valid ID proof (Aadhaar, Passport, etc.)",
+    "4 Passport-size photographs",
+    "Entrance exam scorecard (if applicable)"
+  ],
+  "contact": {
+    "email": "admissions@abcit.edu.demo",
+    "phone": "+1-800-555-0199"
+  }
+}

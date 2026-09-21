@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Institute of Technology - AI Admission Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-info">
+                <h1>ABC Institute of Technology</h1>
+                <h2>AI Admission Assistant</h2>
+            </div>
+            <div class="header-logo">
+                🎓
+            </div>
+        </header>
+
+        <!-- Chat Area -->
+        <div class="chat-box" id="chat-box">
+            <div class="message assistant-message">
+                <div class="message-content">
+                    Hello! I'm the ABC Institute of Technology Admission Assistant. How can I help you?
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggested Questions -->
+        <div class="suggested-questions" id="suggested-questions">
+            <button class="suggested-btn" onclick="sendSuggested('What courses are available?')">What courses are available?</button>
+            <button class="suggested-btn" onclick="sendSuggested('What is the eligibility for CSE?')">What is the eligibility for CSE?</button>
+            <button class="suggested-btn" onclick="sendSuggested('How much are the B.Tech fees?')">How much are the B.Tech fees?</button>
+            <button class="suggested-btn" onclick="sendSuggested('Explain the admission procedure.')">Explain the admission procedure.</button>
+            <button class="suggested-btn" onclick="sendSuggested('What documents are required?')">What documents are required?</button>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off">
+            <button id="send-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
