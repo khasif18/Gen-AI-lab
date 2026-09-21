@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Intelligent Temperature Agent</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js for live graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Smart Home Intelligent Temperature Agent</h1>
+            <h2>Goal-Based AI Agent Simulation</h2>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Dashboard Top row -->
+        <section class="dashboard-top">
+            <div class="card metric-card">
+                <h3>Current Temperature</h3>
+                <div class="value" id="current-temp">28.0°C</div>
+            </div>
+            <div class="card metric-card">
+                <h3>Target Range</h3>
+                <div class="value range">20°C - 24°C</div>
+                <div class="subtext">Hysteresis: 23°C - 25°C</div>
+            </div>
+            <div class="card metric-card">
+                <h3>AC Status</h3>
+                <div class="value status-off" id="ac-status">OFF</div>
+            </div>
+            <div class="card metric-card">
+                <h3>Estimated Energy Usage</h3>
+                <div class="value" id="energy-usage">0 units</div>
+                <div class="subtext">Simulation estimate</div>
+            </div>
+        </section>
+
+        <div class="main-layout">
+            <!-- Left Column: Visuals & Logic -->
+            <div class="left-column">
+                <!-- Room Visualization -->
+                <div class="card room-vis-card">
+                    <h3>Room Visualization</h3>
+                    <div class="room-container" id="room-bg">
+                        <div class="ac-unit" id="ac-unit-vis">
+                            <span class="ac-icon">AC</span>
+                            <div class="airflow hidden" id="airflow">❄ AC Cooling ❄</div>
+                        </div>
+                        <div class="room-temp-display" id="room-temp-display">28.0°C</div>
+                        <div class="status-indicator" id="room-ac-indicator">○ AC Off</div>
+                    </div>
+                </div>
+
+                <!-- Agent Reasoning -->
+                <div class="card reasoning-card">
+                    <h3>Intelligent Agent Reasoning</h3>
+                    <div class="reasoning-box">
+                        <p><strong>Perception:</strong><br> Room temperature = <span id="reason-perception">28.0°C</span></p>
+                        <p><strong>Goal:</strong><br> Maintain temperature between 20°C and 24°C</p>
+                        <p><strong>Decision:</strong><br> <span id="reason-decision">Temperature exceeds upper threshold</span></p>
+                        <p><strong>Action:</strong><br> <span id="reason-action" class="highlight">Turn AC ON</span></p>
+                    </div>
+                </div>
+                
+                <!-- Architecture Diagram -->
+                <div class="card diagram-card">
+                    <h3>Agent Architecture</h3>
+                    <pre class="flow-diagram">
+ROOM ENVIRONMENT
+       ↓
+TEMPERATURE SENSOR
+       ↓
+AGENT PERCEPTION
+       ↓
+GOAL EVALUATION
+       ↓
+DECISION
+       ↓
+AC ON / OFF
+       ↓
+ROOM TEMPERATURE CHANGES
+       ↓
+FEEDBACK
+                    </pre>
+                </div>
+            </div>
+
+            <!-- Right Column: Charts & Data -->
+            <div class="right-column">
+                <!-- Controls -->
+                <div class="card controls-card">
+                    <h3>Simulation Controls</h3>
+                    <div class="control-buttons">
+                        <button id="btn-start" class="btn primary">Start</button>
+                        <button id="btn-pause" class="btn warning" disabled>Pause</button>
+                        <button id="btn-reset" class="btn danger">Reset</button>
+                    </div>
+                    <div class="speed-controls">
+                        <label>Speed:</label>
+                        <label><input type="radio" name="speed" value="2000"> Slow</label>
+                        <label><input type="radio" name="speed" value="1000" checked> Normal</label>
+                        <label><input type="radio" name="speed" value="200"> Fast</label>
+                    </div>
+                </div>
+
+                <!-- Graphs -->
+                <div class="card chart-card">
+                    <h3>Temperature Graph</h3>
+                    <canvas id="tempChart"></canvas>
+                </div>
+                <div class="card chart-card">
+                    <h3>AC Status Graph (1=ON, 0=OFF)</h3>
+                    <canvas id="acChart"></canvas>
+                </div>
+
+                <!-- Live Data Table -->
+                <div class="card table-card">
+                    <h3>Live Event Log</h3>
+                    <div class="table-container">
+                        <table id="log-table">
+                            <thead>
+                                <tr>
+                                    <th>Step</th>
+                                    <th>Temp (°C)</th>
+                                    <th>AC Status</th>
+                                    <th>Agent Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Rows generated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
