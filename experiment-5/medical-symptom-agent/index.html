@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Educational rule-based reasoning demonstration for an AI and ML laboratory.">
+    <title>AI Medical Symptom Checker | Rule Reasoning Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="#top" aria-label="AI Medical Symptom Checker home">
+                <span class="brand-mark">+</span>
+                <span><strong>LAB / 03</strong><small>Rule-based reasoning</small></span>
+            </a>
+            <div class="header-status"><span class="status-dot"></span> Offline knowledge base</div>
+        </header>
+
+        <main id="top">
+            <section class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">B.Tech AI / ML Laboratory</p>
+                    <h1>AI Medical<br><em>Symptom Checker</em></h1>
+                    <p class="hero-subtitle">Knowledge-Based Rule Reasoning Demo</p>
+                    <p class="hero-description">A transparent, browser-based agent that transforms selected symptoms into facts, evaluates predefined rules, and shows every inference step.</p>
+                </div>
+                <div class="hero-diagram" aria-label="Reasoning pipeline diagram">
+                    <div class="diagram-node active"><span>01</span>Symptoms</div>
+                    <div class="diagram-line"></div>
+                    <div class="diagram-node"><span>02</span>Facts</div>
+                    <div class="diagram-line"></div>
+                    <div class="diagram-node"><span>03</span>Rules</div>
+                    <div class="diagram-line"></div>
+                    <div class="diagram-node"><span>04</span>Inference</div>
+                </div>
+            </section>
+
+            <section class="notice" aria-label="Safety notice">
+                <div class="notice-icon">i</div>
+                <div><strong>Educational Demonstration Only</strong><p>This system uses simplified fictional rules for a laboratory experiment. It does not diagnose, prescribe treatment, or replace a qualified healthcare professional.</p></div>
+            </section>
+
+            <section class="workspace-grid">
+                <div class="input-column">
+                    <section class="panel symptoms-panel">
+                        <div class="panel-heading"><div><p class="section-kicker">Input layer</p><h2>Select symptoms</h2></div><span class="count-pill" id="selection-count">0 selected</span></div>
+                        <p class="panel-intro">Choose signals for the agent's environment. These become the initial facts.</p>
+                        <div class="symptom-groups" id="symptoms-container"></div>
+                        <div class="action-row"><button class="button button-primary" id="analyze-btn"><span>Analyze symptoms</span><span class="button-arrow">→</span></button><button class="button button-quiet" id="reset-btn">Clear</button></div>
+                    </section>
+                    <section class="panel examples-panel">
+                        <div class="panel-heading"><div><p class="section-kicker">Quick demonstrations</p><h2>Load a test case</h2></div><span class="micro-label">fictional data</span></div>
+                        <div class="test-case-grid">
+                            <button class="test-case" data-case="flu"><span class="case-icon coral">F</span><span><strong>Flu example</strong><small>5 symptoms</small></span></button>
+                            <button class="test-case" data-case="cold"><span class="case-icon teal">C</span><span><strong>Cold example</strong><small>4 symptoms</small></span></button>
+                            <button class="test-case" data-case="migraine"><span class="case-icon violet">M</span><span><strong>Migraine example</strong><small>3 symptoms</small></span></button>
+                            <button class="test-case" data-case="allergy"><span class="case-icon gold">A</span><span><strong>Allergy example</strong><small>3 symptoms</small></span></button>
+                            <button class="test-case" data-case="stomach"><span class="case-icon orange">G</span><span><strong>Stomach example</strong><small>4 symptoms</small></span></button>
+                            <button class="test-case" data-case="no-match"><span class="case-icon slate">?</span><span><strong>No-match example</strong><small>2 symptoms</small></span></button>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="summary-column">
+                    <section class="panel summary-panel">
+                        <div class="panel-heading"><div><p class="section-kicker">Environment state</p><h2>Patient summary</h2></div><span class="live-badge">LIVE</span></div>
+                        <div class="summary-number"><strong id="summary-number">0</strong><span>facts supplied<br>to the agent</span></div>
+                        <div class="selected-list" id="selected-symptoms-list"><p class="empty-state">Select symptoms to populate the environment.</p></div>
+                        <div class="summary-footer"><span>Fact status</span><strong id="fact-status">Waiting for input</strong></div>
+                    </section>
+                    <section class="panel knowledge-panel"><p class="section-kicker">Knowledge base</p><h2>6 demo conditions</h2><p>18 symptoms · 6 rules · 1 forward-chaining engine</p><div class="kb-tags"><span>Facts</span><span>Rules</span><span>Inference</span></div></section>
+                </aside>
+            </section>
+
+            <section class="panel reasoning-panel" id="reasoning-panel">
+                <div class="panel-heading"><div><p class="section-kicker">Explainable AI trace</p><h2>Agent reasoning</h2></div><span class="trace-status" id="trace-status">Ready to reason</span></div>
+                <div class="timeline">
+                    <article class="timeline-step" id="step-perception"><span class="step-number">01</span><div><h3>Perception</h3><p>The agent receives the selected symptoms from its environment.</p><div class="step-output" id="perception-output">Awaiting symptom input</div></div></article>
+                    <article class="timeline-step" id="step-facts"><span class="step-number">02</span><div><h3>Fact creation</h3><p>Each selected symptom is stored as a logical fact.</p><div class="fact-chips" id="facts-box"><span class="muted-chip">No facts yet</span></div></div></article>
+                    <article class="timeline-step" id="step-rules"><span class="step-number">03</span><div><h3>Rule evaluation</h3><p>The engine compares facts against every predefined rule.</p><div class="rule-trace" id="eval-log"><span class="muted-chip">Rules will appear after analysis</span></div></div></article>
+                    <article class="timeline-step" id="step-inference"><span class="step-number">04</span><div><h3>Inference</h3><p>Useful matches are stored, ranked, and explained as possible condition patterns.</p><div class="step-output" id="inference-output">No conclusions derived</div></div></article>
+                </div>
+            </section>
+
+            <section class="panel results-panel" id="results-panel">
+                <div class="panel-heading"><div><p class="section-kicker">Derived conclusions</p><h2>Possible condition patterns</h2></div><span class="score-legend">Score = matched / required</span></div>
+                <div class="results-layout"><div class="results-list" id="results-container"></div><div class="chart-card" id="chart-card"><div class="chart-header"><span>Rule Match Scores</span><small>not medical likelihood</small></div><div class="chart-wrap"><canvas id="matchChart" aria-label="Bar chart of rule match scores"></canvas></div></div></div>
+                <div id="no-match-message" class="no-match" hidden><strong>No matching demonstration rule was found.</strong><p>The selected symptoms are not covered well by the current knowledge base. Real health concerns require professional evaluation.</p></div>
+                <div class="result-disclaimer">Every result is a rule-based educational output. A rule-match score is not a probability, confidence score, or diagnosis.</div>
+            </section>
+        </main>
+        <footer class="footer"><span>AI Medical Symptom Checker · Experiment 3</span><span>HTML · CSS · JavaScript · No patient data</span></footer>
+    </div>
+    <script src="knowledge-base.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
